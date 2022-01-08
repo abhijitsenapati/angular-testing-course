@@ -25,6 +25,8 @@ steps:
     SonarCloud: 'SonarCloud'
     organization: 'abhijitsenapati'
     scannerMode: 'CLI'
-    configMode: 'file'
+    configMode: 'manual'
+    cliProjectKey: 'partsunlimited.abhijit'
+    cliSources: '.'
 
 - task: SonarCloudAnalyze@1
