@@ -26,7 +26,11 @@ steps:
     organization: 'abhijitsenapati'
     scannerMode: 'CLI'
     configMode: 'manual'
-    cliProjectKey: 'partsunlimited.abhijit'
+    cliProjectKey: 'abhijit.angulartestcourse'
     cliSources: '.'
 
 - task: SonarCloudAnalyze@1
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
