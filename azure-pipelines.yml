@@ -21,3 +21,5 @@ steps:
   displayName: 'npm install and build'
 
 - task: WhiteSource Bolt@20
+
+- task: SonarCloudAnalyze@1
