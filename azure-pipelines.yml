@@ -24,7 +24,7 @@ steps:
   inputs:
     SonarCloud: 'SonarCloud'
     organization: 'abhijitsenapati'
-    scannerMode: 'MSBuild'
-    projectKey: 'partsunlimited.abhijit'
+    scannerMode: 'CLI'
+    configMode: 'file'
 
 - task: SonarCloudAnalyze@1
