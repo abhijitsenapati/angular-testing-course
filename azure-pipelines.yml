@@ -20,6 +20,8 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
+- task: WhiteSource Bolt@20
+
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'SonarCloud'
