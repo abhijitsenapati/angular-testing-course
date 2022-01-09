@@ -18,14 +18,22 @@ steps:
 - script: |
     npm install
     npm run build
-    npm i karma-coverage
-    npm run test-headless
     npm run e2e
   displayName: 'npm install and build'
 
+- task: WhiteSource Bolt@20
 
-
-- task: PublishCodeCoverageResults@1
+- task: SonarCloudPrepare@1
   inputs:
-    codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '**/testresults/coverage/code-coverage.xml'
+    SonarCloud: 'SonarCloud'
+    organization: 'abhijitsenapati'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'abhijit.angulartestcourse'
+    cliSources: '.'
+
+- task: SonarCloudAnalyze@1
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
