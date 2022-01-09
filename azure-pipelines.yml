@@ -23,22 +23,7 @@ steps:
     npm run e2e
   displayName: 'npm install and build'
 
-- task: WhiteSource Bolt@20
 
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'SonarCloud'
-    organization: 'abhijitsenapati'
-    scannerMode: 'CLI'
-    configMode: 'manual'
-    cliProjectKey: 'abhijit.angulartestcourse'
-    cliSources: '.'
-
-- task: SonarCloudAnalyze@1
-
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
 
 - task: PublishCodeCoverageResults@1
   inputs:
