@@ -20,15 +20,19 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-- task: NuGetCommand@2
-  inputs:
-    command: 'pack'
-    packagesToPack: '**/*.csproj'
-    versioningScheme: 'off'
+- task: WhiteSource Bolt@20
 
-- task: NuGetCommand@2
+- task: SonarCloudPrepare@1
   inputs:
-    command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: '9174bb45-390a-476d-8793-bb1b573b4324'
+    SonarCloud: 'SonarCloud'
+    organization: 'abhijitsenapati'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'abhijit.angulartestcourse'
+    cliSources: '.'
+
+- task: SonarCloudAnalyze@1
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
