@@ -7,7 +7,6 @@ module.exports = function (config) {
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
-      require('karma-coverage'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
@@ -23,13 +22,7 @@ module.exports = function (config) {
     angularCli: {
       environment: 'dev'
     },
-    coverageReporter: {
-      type : 'cobertura',
-      dir : 'testresults',
-      subdir:'coverage',
-      file: 'code-coverage.xml'
-    },
-    reporters: ['progress', 'kjhtml', 'coverage'],
+    reporters: ['progress', 'kjhtml',],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
